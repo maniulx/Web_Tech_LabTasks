@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch Layout</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .layout {
+            display: flex;
+        }
+
+        .right-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div style="width: 40px; height: 60px; background: rgb(237, 250, 60); border-radius: 50%; margin: auto;"></div>
+        <div style="width: 180px; background: rgb(237, 250, 60); text-align: center; padding: 5px;">Title</div>
+    </div>
+    <div class="layout">
+        <div>
+            <div style="width: 300px; height: 400px; background: rgb(122, 250, 186);">
+                <label for="name" style="font-size: 12px; margin-left: 30px; margin-top: 20px;">Enter Full Name:</label><br>
+                <input type="text" id="name" name="name" style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+
+                <label for="email" style="font-size: 12px; margin-left: 30px;">Enter Email:</label><br>
+                <input type="email" id="email" name="email" style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+
+                <label for="password" style="font-size: 12px; margin-left: 30px;">Enter Password:</label><br>
+                <input type="password" id="password" name="password" style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+            </div>
+            <div style="width: 300px; height: 100px; background: rgb(107, 163, 236);"></div>
+        </div>
+        <div class="right-box">
+            <div style="width: 90px; height: 100%; background: rgb(255, 216, 216);"></div>
+        </div>
+    </div>
+</body>
+
+</html>
