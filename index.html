@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sketch Layout</title>
+    <title>Signup</title>
     <style>
         body {
             display: flex;
@@ -21,7 +21,42 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 500px;
+            height: 600px;
+        }
+
+        /* Style for radio buttons */
+        .gender-options {
+            font-size: 12px;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        .gender-options label {
+            margin-right: 10px;
+        }
+
+        /* Style for terms and conditions checkbox */
+        .terms {
+            font-size: 12px;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        .terms label {
+            margin-left: 5px;
+        }
+
+        /* Style for hyperlink */
+        .terms a {
+            color: blue;
+            /* Change link color */
+            text-decoration: underline;
+            /* Add underline */
+        }
+
+        .terms a:hover {
+            color: darkblue;
+            /* Change link color on hover */
         }
     </style>
 </head>
@@ -33,15 +68,61 @@
     </div>
     <div class="layout">
         <div>
-            <div style="width: 300px; height: 400px; background: rgb(122, 250, 186);">
-                <label for="name" style="font-size: 12px; margin-left: 30px; margin-top: 20px;">Enter Full Name:</label><br>
-                <input type="text" id="name" name="name" style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+            <div style="width: 300px; height: 500px; background: rgb(122, 250, 186);">
+                <br><label for="name" style="font-size: 12px; margin-left: 30px;">Enter Full
+                    Name:</label><br>
+                <input type="text" id="name" name="name"
+                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
 
                 <label for="email" style="font-size: 12px; margin-left: 30px;">Enter Email:</label><br>
-                <input type="email" id="email" name="email" style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+                <input type="email" id="email" name="email"
+                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
 
                 <label for="password" style="font-size: 12px; margin-left: 30px;">Enter Password:</label><br>
-                <input type="password" id="password" name="password" style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+                <input type="password" id="password" name="password"
+                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+
+                <label for="password" style="font-size: 12px; margin-left: 30px;">Confirm Password:</label><br>
+                <input type="password" id="password" name="password"
+                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+
+                <label for="dob" style="font-size: 12px; margin-left: 30px;">Date of Birth:</label><br>
+                <input type="date" id="dob" name="dob"
+                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+
+                <label for="country" style="font-size: 12px; margin-left: 30px;">Country:</label><br>
+                <select id="country" name="country"
+                    style="width: 63%; font-size: 12px; padding: 5px; margin-left: 30px;">
+                    <option value="">Select Country</option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="australia">Australia</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                </select><br>
+
+                <label for="colorPicker" style="font-size: 12px; margin-left: 30px;">Choose a Color:</label><br>
+                <input type="color" id="colorPicker" name="colorPicker"
+                    style="width: 63%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+
+                <div class="gender-options">
+                    <label>Gender:</label><br>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+
+                <div class="terms">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the <a href="https://beanbox.com/terms" target="_blank">Terms &
+                            Conditions</a></label>
+                </div>
+
+                <div style="text-align: left; margin-top: 20px; margin-left: 30px;">
+                    <button type="submit" style="font-size: 12px; padding: 5px 10px;">Submit</button>
+                </div>
             </div>
             <div style="width: 300px; height: 100px; background: rgb(107, 163, 236);"></div>
         </div>
