@@ -1,135 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .layout {
-            display: flex;
-        }
+      .layout {
+        display: flex;
+      }
 
-        .right-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 600px;
-        }
+      .right-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 600px;
+      }
 
-        /* Style for radio buttons */
-        .gender-options {
-            font-size: 12px;
-            margin-left: 30px;
-            margin-top: 10px;
-        }
+      /* Style for radio buttons */
+      .gender-options {
+        font-size: 12px;
+        margin-left: 30px;
+        margin-top: 10px;
+      }
 
-        .gender-options label {
-            margin-right: 10px;
-        }
+      .gender-options label {
+        margin-right: 10px;
+      }
 
-        /* Style for terms and conditions checkbox */
-        .terms {
-            font-size: 12px;
-            margin-left: 30px;
-            margin-top: 10px;
-        }
+      /* Style for terms and conditions checkbox */
+      .terms {
+        font-size: 12px;
+        margin-left: 30px;
+        margin-top: 10px;
+      }
 
-        .terms label {
-            margin-left: 5px;
-        }
+      .terms label {
+        margin-left: 5px;
+      }
 
-        /* Style for hyperlink */
-        .terms a {
-            color: blue;
-            /* Change link color */
-            text-decoration: underline;
-            /* Add underline */
-        }
+      /* Style for hyperlink */
+      .terms a {
+        color: blue;
+        /* Change link color */
+        text-decoration: underline;
+        /* Add underline */
+      }
 
-        .terms a:hover {
-            color: darkblue;
-            /* Change link color on hover */
-        }
+      .terms a:hover {
+        color: darkblue;
+        /* Change link color on hover */
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <div style="width: 40px; height: 60px; background: rgb(237, 250, 60); border-radius: 50%; margin: auto;"></div>
-        <div style="width: 180px; background: rgb(237, 250, 60); text-align: center; padding: 5px;">Title</div>
+      <div
+        style="
+          width: 40px;
+          height: 60px;
+          background: rgb(237, 250, 60);
+          border-radius: 50%;
+          margin: auto;
+        "
+      ></div>
+      <div
+        style="
+          width: 180px;
+          background: rgb(237, 250, 60);
+          text-align: center;
+          padding: 5px;
+        "
+      >
+        Title
+      </div>
     </div>
     <div class="layout">
-        <div>
-            <div style="width: 300px; height: 500px; background: rgb(122, 250, 186);">
-                <br><label for="name" style="font-size: 12px; margin-left: 30px;">Enter Full
-                    Name:</label><br>
-                <input type="text" id="name" name="name"
-                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+      <div>
+        <div
+          style="width: 300px; height: 500px; background: rgb(122, 250, 186)"
+        >
+          <br /><label for="name" style="font-size: 12px; margin-left: 30px"
+            >Enter Full Name:</label
+          ><br />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px"
+          /><br />
 
-                <label for="email" style="font-size: 12px; margin-left: 30px;">Enter Email:</label><br>
-                <input type="email" id="email" name="email"
-                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+          <label for="email" style="font-size: 12px; margin-left: 30px"
+            >Enter Email:</label
+          ><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px"
+          /><br />
 
-                <label for="password" style="font-size: 12px; margin-left: 30px;">Enter Password:</label><br>
-                <input type="password" id="password" name="password"
-                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+          <label for="password" style="font-size: 12px; margin-left: 30px"
+            >Enter Password:</label
+          ><br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px"
+          /><br />
 
-                <label for="password" style="font-size: 12px; margin-left: 30px;">Confirm Password:</label><br>
-                <input type="password" id="password" name="password"
-                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+          <label for="password" style="font-size: 12px; margin-left: 30px"
+            >Confirm Password:</label
+          ><br />
+          <input
+            type="password"
+            id="cpassword"
+            name="password"
+            style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px"
+          /><br />
 
-                <label for="dob" style="font-size: 12px; margin-left: 30px;">Date of Birth:</label><br>
-                <input type="date" id="dob" name="dob"
-                    style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+          <label for="dob" style="font-size: 12px; margin-left: 30px"
+            >Date of Birth:</label
+          ><br />
+          <input
+            type="date"
+            id="dob"
+            name="dob"
+            style="width: 60%; font-size: 12px; padding: 5px; margin-left: 30px"
+          /><br />
 
-                <label for="country" style="font-size: 12px; margin-left: 30px;">Country:</label><br>
-                <select id="country" name="country"
-                    style="width: 63%; font-size: 12px; padding: 5px; margin-left: 30px;">
-                    <option value="">Select Country</option>
-                    <option value="usa">United States</option>
-                    <option value="canada">Canada</option>
-                    <option value="uk">United Kingdom</option>
-                    <option value="australia">Australia</option>
-                    <option value="germany">Germany</option>
-                    <option value="france">France</option>
-                </select><br>
+          <label for="country" style="font-size: 12px; margin-left: 30px"
+            >Country:</label
+          ><br />
+          <select
+            id="country"
+            name="country"
+            style="width: 63%; font-size: 12px; padding: 5px; margin-left: 30px"
+          >
+            <option value="">Select Country</option>
+            <option value="usa">United States</option>
+            <option value="canada">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="australia">Australia</option>
+            <option value="germany">Germany</option>
+            <option value="france">France</option></select
+          ><br />
 
-                <label for="colorPicker" style="font-size: 12px; margin-left: 30px;">Choose a Color:</label><br>
-                <input type="color" id="colorPicker" name="colorPicker"
-                    style="width: 63%; font-size: 12px; padding: 5px; margin-left: 30px;"><br>
+          <label for="colorPicker" style="font-size: 12px; margin-left: 30px"
+            >Choose a Color:</label
+          ><br />
+          <input
+            type="color"
+            id="colorPicker"
+            name="colorPicker"
+            style="width: 63%; font-size: 12px; padding: 5px; margin-left: 30px"
+          /><br />
 
-                <div class="gender-options">
-                    <label>Gender:</label><br>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Female</label>
-                </div>
+          <div class="gender-options">
+            <label>Gender:</label><br />
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="female">Female</label>
+          </div>
 
-                <div class="terms">
-                    <input type="checkbox" id="terms" name="terms">
-                    <label for="terms">I agree to the <a href="https://beanbox.com/terms" target="_blank">Terms &
-                            Conditions</a></label>
-                </div>
+          <div class="terms">
+            <input type="checkbox" id="terms" name="terms" />
+            <label for="terms"
+              >I agree to the
+              <a href="https://beanbox.com/terms" target="_blank"
+                >Terms & Conditions</a
+              ></label
+            >
+          </div>
 
-                <div style="text-align: left; margin-top: 20px; margin-left: 30px;">
-                    <button type="submit" style="font-size: 12px; padding: 5px 10px;">Submit</button>
-                </div>
-            </div>
-            <div style="width: 300px; height: 100px; background: rgb(107, 163, 236);"></div>
+          <div style="text-align: left; margin-top: 20px; margin-left: 30px">
+            <button
+              type="submit"
+              id="submit"
+              style="font-size: 12px; padding: 5px 10px"
+              onclick="submit()"
+            >
+              Submit
+            </button>
+          </div>
         </div>
-        <div class="right-box">
-            <div style="width: 90px; height: 100%; background: rgb(255, 216, 216);"></div>
-        </div>
+        <div
+          style="width: 300px; height: 100px; background: rgb(107, 163, 236)"
+        ></div>
+      </div>
+      <div class="right-box">
+        <div
+          style="width: 90px; height: 100%; background: rgb(255, 216, 216)"
+        ></div>
+      </div>
     </div>
-</body>
 
+    <script>
+      let name = document.getElementById("name");
+      let email = document.getElementById("email");
+      let password = document.getElementById("password");
+      let confirmPassword = document.getElementById("cpassword");
+      let dob = document.getElementById("dob");
+      let country = document.getElementById("country");
+      let isMale = document.getElementById("male");
+      let isFemale = document.getElementById("female");
+      let termsConditions = document.getElementById("terms");
+      let colorPicked = document.getElementById("colorPicker");
+
+      function checkIfAdult(dateString) {
+        const today = new Date();
+        const birthDate = new Date(dateString);
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+
+        if (
+          monthDiff < 0 ||
+          (monthDiff === 0 && today.getDate() < birthDate.getDate())
+        ) {
+          age--;
+        }
+
+        return age >= 18;
+      }
+
+      function submit() {
+        if (/\d/.test(name.value)) {
+          alert("Invalid Name! Use Alphabets Only!");
+          return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+          alert("Invalid Email Address! Enter a Valid Email Address!");
+          return;
+        }
+
+        if (password.value.length < 8) {
+          alert("Password must be at least 8 characters");
+          return;
+        }
+
+        if (password.value != confirmPassword.value) {
+          alert("Please check the confirm password again!");
+          return;
+        }
+
+        if (!checkIfAdult(dob.value)) {
+          alert("You must be 18 or older to sign up!");
+          return;
+        }
+
+        if (!country.value) {
+          alert("Please select your country!");
+          return;
+        }
+
+        if (!isFemale.checked && !isMale.checked) {
+          alert("Please select your gender!");
+          return;
+        }
+
+        if (!termsConditions.checked) {
+          alert("You must agree to the Terms & Conditions!");
+          return;
+        }
+
+        alert("Signup Successful!");
+      }
+    </script>
+  </body>
 </html>
