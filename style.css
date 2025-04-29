@@ -1,0 +1,209 @@
+body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+    background: #168cfc;
+    flex-direction: column;
+    margin: 100px;
+    margin-top: 00px;
+    height: 800px;
+    border-radius: 5px;
+}
+
+.top-left-panel {
+    display: flex;
+    background: #4a7ba9;
+    height: 650px;
+    width: 300px;
+    border-top-left-radius: 10px;
+    flex-direction: column;
+    align-items: left;
+    box-sizing: border-box;
+    position: relative;
+    padding-left: 20px;
+}
+
+.bottom-left-panel {
+    display: flex;
+    height: 150px;
+    width: 300px;
+    background: #1f3d6b;
+    border-bottom-left-radius: 10px;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.header>h4 {
+    font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+    border-radius: 100%;
+    margin-bottom: 2px;
+}
+
+.company-title {
+    margin: 0px;
+    font-size: 20px;
+    color: #36454f;
+}
+
+.reg-details input,
+.reg-details select {
+    font-size: 11px;
+    padding: 3px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+    color: #000000;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+input::placeholder {
+    color: rgb(47, 46, 46);
+    transition: color 230ms ease;
+    opacity: 0.6;
+    font-size: 10px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #6dbdcf;
+    box-shadow: 0 0 5px rgba(4, 72, 145, 0.5);
+}
+
+.reg-details div input[type="color"] {
+    height: 20px;
+    width: 22px;
+    padding: 0px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.reg-details div input[type="color"]:focus {
+    border: 2px solid #d7dddf;
+    box-shadow: 0 0 5px rgba(4, 72, 145, 0.5);
+    outline: none;
+}
+
+.color-label {
+    font-size: 14px;
+    color: #ffffff;
+    padding-left: 1.5px;
+}
+
+.reg-details .reg-button {
+    width: 150px;
+    padding: 6px 12px;
+    margin-top: 10px;
+    border: none;
+    color: #f0f0f0;
+    border-radius: 1000px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14;
+    background: linear-gradient(to right, #15406e 0%, #031229 100%);
+    background-size: 200%;
+    cursor: pointer;
+    transition: background-position 0.4s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.reg-details .reg-button:hover {
+    background-position: right center;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1px;
+    margin-right: 30px;
+}
+
+fieldset>label {
+    font-size: 11px;
+}
+
+legend {
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.user-reg>h4 {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    margin-bottom: 30px;
+    margin-top: 14px;
+    position: relative;
+    width: max-content;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: #ffffff 2px solid;
+    padding-bottom: 5px;
+}
+
+.reg-details label[for="termandcondition"] a {
+    font-size: 11px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.reg-details label[for="termandcondition"] a:hover {
+    text-decoration: underline;
+    color: #ece80c;
+}
+
+.input_fields {
+    width: 200px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    max-width: 200px;
+}
+
+input[type="date"],
+textarea {
+    width: 100%;
+    max-width: 150px;
+}
+
+input[type="checkbox"],
+textarea {
+    margin-bottom: 20px;
+}
+
+#ucountry {
+    width: 100%;
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+#ucolor {
+    margin-bottom: 20px;
+}
+
