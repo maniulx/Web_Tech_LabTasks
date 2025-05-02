@@ -11,7 +11,7 @@ body {
     flex-direction: column;
     margin: 100px;
     margin-top: 00px;
-    height: 800px;
+    height: 1000px;
     border-radius: 5px;
 }
 
@@ -30,10 +30,15 @@ body {
 
 .bottom-left-panel {
     display: flex;
-    height: 150px;
+    height: 350px;
     width: 300px;
     background: #1f3d6b;
     border-bottom-left-radius: 10px;
+    flex-direction: column;
+    align-items: left;
+    box-sizing: border-box;
+    position: relative;
+    padding-left: 20px;
 }
 
 .header {
@@ -107,6 +112,34 @@ input:focus {
     outline: none;
 }
 
+.login-details div input[type="color"] {
+    height: 20px;
+    width: 22px;
+    padding: 0px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.login-details div input[type="color"]:focus {
+    border: 2px solid #d7dddf;
+    box-shadow: 0 0 5px rgba(4, 72, 145, 0.5);
+    outline: none;
+}
+
+.login-details input,
+.login-details select {
+    font-size: 16px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+    color: #000000;
+}
+
 .color-label {
     font-size: 14px;
     color: #ffffff;
@@ -123,6 +156,22 @@ input:focus {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14;
     background: linear-gradient(to right, #15406e 0%, #031229 100%);
+    background-size: 200%;
+    cursor: pointer;
+    transition: background-position 0.4s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.login-details .login-button {
+    width: 150px;
+    padding: 6px 12px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: none;
+    color: #031229;
+    border-radius: 1000px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14;
+    background: #d7dddf;
     background-size: 200%;
     cursor: pointer;
     transition: background-position 0.4s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -161,6 +210,35 @@ legend {
     font-size: 16px;
     border-bottom: #ffffff 2px solid;
     padding-bottom: 5px;
+}
+
+.login>h4 {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    margin-top: 14px;
+    position: relative;
+    width: max-content;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: #ffffff 2px solid;
+    padding-bottom: 5px;
+}
+
+.login-details>p {
+    font-size: 12px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.login-details>p>a {
+    font-size: 12px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.login-details a:hover {
+    text-decoration: underline;
+    color: #ece80c;
 }
 
 .reg-details label[for="termandcondition"] a {
@@ -206,4 +284,11 @@ textarea {
 #ucolor {
     margin-bottom: 20px;
 }
+
+.error-message {
+    font-size: 12px;
+    color: red;
+    display: none;
+}
+
 

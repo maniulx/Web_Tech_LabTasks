@@ -22,16 +22,26 @@
         <h4>Registration</h4>
         <div class="reg-details">
           <form action="#">
+
             <label for="ufullname">Full Name</label><br>
             <input type="text" id="ufullname" name="ufullname" placeholder="e.g., John Doe" required><br>
+            <span id="ufullname-error" class="error-message"></span>
+
             <label for="uemail">Email</label><br>
             <input type="email" id="uemail" name="uemail" placeholder="e.g., example@example.com" required><br>
+            <span id="uemail-error" class="error-message"></span>
+
             <label for="upassword">Password</label><br>
             <input type="password" id="upassword" name="upassword" placeholder="Create a strong password" required><br>
+            <span id="upassword-error" class="error-message"></span>
+
             <label for="ucpassword">Confirm Password</label><br>
             <input type="password" id="ucpassword" name="ucpassword" placeholder="Re-enter your password" required><br>
+            <span id="ucpassword-error" class="error-message"></span>
+
             <label for="udob">Date of Birth</label><br>
             <input type="date" id="udob" name="udob" required><br>
+            <span id="udob-error" class="error-message"></span>
 
             <label for="ucountry">Country</label><br>
             <select name="ucountry" id="ucountry" required>
@@ -68,7 +78,29 @@
         </div>
       </div>
     </div>
-    <div class="bottom-left-panel"></div>
+    <div class="bottom-left-panel">
+      <div class="login">
+        <h4>Login</h4>
+        <div class="login-details">
+          <form action="#">
+
+            <label for="login-email"></label><br>
+            <input type="email" id="login-email" name="login-email" placeholder="Enter Email" required><br>
+            <span id="login-email-error" class="error-message"></span>
+    
+            <label for="login-pass"></label><br>
+            <input type="password" id="login-pass" name="login-pass" placeholder="Enter Password" required><br>
+            <span id="login-pass-error" class="error-message"></span>
+    
+            <button type="submit" class="login-button" onclick="return login_validate()">
+              Log In
+            </button>
+          </form>
+          <p>Don't have an account? <a href="#register">Register</a></p>
+          <p>Forgot your password? <a href="#reset">Reset</a></p>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
