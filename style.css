@@ -8,11 +8,35 @@ body {
 .main-container {
     display: flex;
     background: #168cfc;
-    flex-direction: column;
+    flex-direction: row; /* Change to row to align panels horizontally */
     margin: 100px;
-    margin-top: 00px;
+    margin-top: 0px;
     height: 1000px;
     border-radius: 5px;
+}
+
+.left-panel{
+    display: flex;
+    flex-direction: column; /* Align left panels vertically */
+    background: #168cfc;
+    width: 300px; /* Set a fixed width for the left panel */
+    box-sizing: border-box;
+}
+
+.top-left-panel,
+.bottom-left-panel {
+    flex-shrink: 0; /* Prevent shrinking of left panels */
+}
+
+.right-panel {
+    flex: 1; /* Allow the right panel to take up the remaining space */
+    display: flex;
+    background: #168cfc;
+    flex-direction: column;
+    align-items: left;
+    box-sizing: border-box;
+    position: relative;
+    padding-left: 20px;
 }
 
 .top-left-panel {
@@ -289,6 +313,52 @@ textarea {
     font-size: 12px;
     color: red;
     display: none;
+}
+
+.table-container {
+    display: flex; 
+    align-items: center;
+}
+
+.aqi-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.aqi-table caption {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.aqi-table th, .aqi-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.aqi-table th {
+    background-color: #4a7ba9;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.aqi-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.aqi-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
 
 
