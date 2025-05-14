@@ -137,29 +137,31 @@
     <div class="border-container">
         <div class="request-box">
             <h2>Request AQI Details</h2>
-            <form class="checkbox-list">
-                <label><input type="checkbox" id="15" name="city"> Tokyo, Japan</label><br>
-                <label><input type="checkbox" id="20" name="city"> Istanbul, Turkey</label><br>
-                <label><input type="checkbox" id="19" name="city"> Mexico City, Mexico</label><br>
-                <label><input type="checkbox" id="2" name="city"> Moscow, Russia</label><br>
-                <label><input type="checkbox" id="9" name="city"> Sao Paulo, Brazil</label><br>
-                <label><input type="checkbox" id="16" name="city"> Paris, France</label><br>
-                <label><input type="checkbox" id="3" name="city"> Lagos, Nigeria</label><br>
-                <label><input type="checkbox" id="6" name="city"> Sydney, Australia</label><br>
-                <label><input type="checkbox" id="13" name="city"> Berlin, Germany</label><br>
-                <label><input type="checkbox" id="4" name="city"> Bangkok, Thailand</label><br>
-                <label><input type="checkbox" id="5" name="city"> Beijing, China</label><br>
-                <label><input type="checkbox" id="10" name="city"> Jakarta, Indonesia</label><br>
-                <label><input type="checkbox" id="12" name="city"> Dubai, United Arab Emirates</label><br>
-                <label><input type="checkbox" id="18" name="city"> Rome, Italy</label><br>
-                <label><input type="checkbox" id="1" name="city"> Los Angeles, United States</label><br>
-                <label><input type="checkbox" id="7" name="city"> Delhi, India</label><br>
-                <label><input type="checkbox" id="14" name="city"> Cairo, Egypt</label><br>
-                <label><input type="checkbox" id="8" name="city"> New York, United States</label><br>
-                <label><input type="checkbox" id="11" name="city"> Toronto, Canada</label><br>
-                <label><input type="checkbox" id="17" name="city"> London, United Kingdom</label><br><br>
+            <form class="checkbox-list" method="post" action="responseaqi.php">
+                <label><input type="checkbox" id="15" value="15"  name="city[]"> Tokyo, Japan</label><br>
+                <label><input type="checkbox" id="20" value="20"  name="city[]"> Istanbul, Turkey</label><br>
+                <label><input type="checkbox" id="19" value="19"  name="city[]"> Mexico City, Mexico</label><br>
+                <label><input type="checkbox" id="2"  value="2"  name="city[]"> Moscow, Russia</label><br>
+                <label><input type="checkbox" id="9"  value="9"  name="city[]"> Sao Paulo, Brazil</label><br>
+                <label><input type="checkbox" id="16" value="16"  name="city[]"> Paris, France</label><br>
+                <label><input type="checkbox" id="3"  value="3"  name="city[]"> Lagos, Nigeria</label><br>
+                <label><input type="checkbox" id="6"  value="6"  name="city[]"> Sydney, Australia</label><br>
+                <label><input type="checkbox" id="13" value="13"  name="city[]"> Berlin, Germany</label><br>
+                <label><input type="checkbox" id="4"  value="4"  name="city[]"> Bangkok, Thailand</label><br>
+                <label><input type="checkbox" id="5"  value="5"  name="city[]"> Beijing, China</label><br>
+                <label><input type="checkbox" id="10" value="10"  name="city[]"> Jakarta, Indonesia</label><br>
+                <label><input type="checkbox" id="12" value="12"  name="city[]"> Dubai, United Arab Emirates</label><br>
+                <label><input type="checkbox" id="18" value="18"  name="city[]"> Rome, Italy</label><br>
+                <label><input type="checkbox" id="1"  value="1"  name="city[]"> Los Angeles, United States</label><br>
+                <label><input type="checkbox" id="7"  value="7"  name="city[]"> Delhi, India</label><br>
+                <label><input type="checkbox" id="14" value="14"  name="city[]"> Cairo, Egypt</label><br>
+                <label><input type="checkbox" id="8"  value="8"  name="city[]"> New York, United States</label><br>
+                <label><input type="checkbox" id="11" value="11"  name="city[]"> Toronto, Canada</label><br>
+                <label><input type="checkbox" id="17" value="17"  name="city[]"> London, United Kingdom</label><br><br>
+
+               <div class="confirm-box"><button type="submit" class="confirm-button">Confirm</button></div>
             </form>
-             <div class="confirm-box"><button type="button" class="confirm-button">Confirm</button></div>
+           
         </div>
     </div>
 </body>
