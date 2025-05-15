@@ -13,6 +13,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<?php
 if (isset($_POST['city']) && is_array($_POST['city']) && count($_POST['city']) > 0) {
     $ids = array_map('intval', $_POST['city']);
     $idList = implode(',', $ids);
@@ -20,15 +28,17 @@ if (isset($_POST['city']) && is_array($_POST['city']) && count($_POST['city']) >
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<table border='1'>
-                <tr><th>ID</th><th>City</th><th>Country</th><th>AQI</th></tr>";
+        echo "<table border='1' class='aqi-table'>
+                <tr><th>Serial No.</th><th>City</th><th>Country</th><th>AQI</th></tr>";
+        $serial = 1;
         while($row = $result->fetch_assoc()) {
             echo "<tr>
-                    <td>{$row['id']}</td>
+                    <td>{$serial}</td>
                     <td>{$row['City']}</td>
                     <td>{$row['Country']}</td>
                     <td>{$row['Aqi']}</td>
                   </tr>";
+            $serial++;
         }
         echo "</table>";
     } else {
@@ -40,3 +50,5 @@ if (isset($_POST['city']) && is_array($_POST['city']) && count($_POST['city']) >
 
 $conn->close();
 ?>
+</body>
+</html>

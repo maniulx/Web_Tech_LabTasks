@@ -7,28 +7,33 @@ body {
 
 .main-container {
     display: flex;
-    flex-direction: row; /* Change to row to align panels horizontally */
+    flex-direction: row;
+    /* Change to row to align panels horizontally */
     margin: 100px;
     margin-top: 0px;
     height: 1050px;
     border-radius: 5px;
 }
 
-.left-panel{
+.left-panel {
     display: flex;
-    flex-direction: column; /* Align left panels vertically */
+    flex-direction: column;
+    /* Align left panels vertically */
     background: #168cfc;
-    width: 300px; /* Set a fixed width for the left panel */
+    width: 300px;
+    /* Set a fixed width for the left panel */
     box-sizing: border-box;
 }
 
 .top-left-panel,
 .bottom-left-panel {
-    flex-shrink: 0; /* Prevent shrinking of left panels */
+    flex-shrink: 0;
+    /* Prevent shrinking of left panels */
 }
 
 .right-panel {
-    flex: 1; /* Allow the right panel to take up the remaining space */
+    flex: 1;
+    /* Allow the right panel to take up the remaining space */
     display: flex;
     background-color: #30b364;
     flex-direction: column;
@@ -322,7 +327,9 @@ textarea {
 }
 
 .table-container {
-    display: flex; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -347,7 +354,8 @@ textarea {
     color: #ffffff;
 }
 
-.aqi-table th, .aqi-table td {
+.aqi-table th,
+.aqi-table td {
     padding: 12px 15px;
     border: 1px solid #ddd;
 }
@@ -366,5 +374,3 @@ textarea {
     background-color: #f1f1f1;
     cursor: pointer;
 }
-
-

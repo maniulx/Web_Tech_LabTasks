@@ -137,7 +137,7 @@
     <div class="border-container">
         <div class="request-box">
             <h2>Request AQI Details</h2>
-            <form class="checkbox-list" method="post" action="responseaqi.php">
+            <form class="checkbox-list" method="post" action="showaqi.php">
                 <label><input type="checkbox" id="15" value="15"  name="city[]"> Tokyo, Japan</label><br>
                 <label><input type="checkbox" id="20" value="20"  name="city[]"> Istanbul, Turkey</label><br>
                 <label><input type="checkbox" id="19" value="19"  name="city[]"> Mexico City, Mexico</label><br>
