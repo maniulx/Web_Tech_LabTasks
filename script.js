@@ -1,8 +1,36 @@
+function validateCheckboxes() {
+    const checked = document.querySelectorAll('.checkbox-list input[type="checkbox"]:checked').length;
+    if (checked > 10) {
+        showLimitModal();
+        return false;
+    }
+    return true;
+}
+
+function showLimitModal() {
+    document.getElementById('limit-modal').style.display = 'flex';
+    document.getElementById('request-box').style.filter = 'blur(4px)';
+    document.body.classList.add('modal-open');
+}
+
+function closeLimitModal() {
+    document.getElementById('limit-modal').style.display = 'none';
+    document.getElementById('request-box').style.filter = 'none';
+    document.body.classList.remove('modal-open');
+}
+
+function closeRegSuccessModal() {
+    document.getElementById('registration-done-modal').style.display = 'none';
+    document.getElementById('confirmation-container').style.filter = 'none';
+    document.body.classList.remove('modal-open');
+    setTimeout(function () {
+        window.location.href = 'index.php';
+    }, 500);
+}
+
 function validate() {
-    // Hide all error messages initially
     document.querySelectorAll('.error-message').forEach(msg => msg.style.display = 'none');
 
-    // Validate Full Name
     let fname = document.getElementById('ufullname');
     if (fname.value.trim() === "") {
         document.getElementById('ufullname-error').textContent = "Please enter your full name.";

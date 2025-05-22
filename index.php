@@ -22,28 +22,29 @@
         <div class="user-reg">
           <h4>Registration</h4>
           <div class="reg-details">
-            <form action="process.php" method="POST" id="reg-form">
-  
+            <form action="process.php" method="POST" id="reg-form" enctype="multipart/form-data">
               <label for="ufullname">Full Name</label><br>
               <input type="text" id="ufullname" name="ufullname" placeholder="e.g., John Doe" required><br>
               <span id="ufullname-error" class="error-message"></span>
-  
+
               <label for="uemail">Email</label><br>
               <input type="email" id="uemail" name="uemail" placeholder="e.g., example@example.com" required><br>
               <span id="uemail-error" class="error-message"></span>
-  
+
               <label for="upassword">Password</label><br>
-              <input type="password" id="upassword" name="upassword" placeholder="Create a strong password" required><br>
+              <input type="password" id="upassword" name="upassword" placeholder="Create a strong password"
+                required><br>
               <span id="upassword-error" class="error-message"></span>
-  
+
               <label for="ucpassword">Confirm Password</label><br>
-              <input type="password" id="ucpassword" name="ucpassword" placeholder="Re-enter your password" required><br>
+              <input type="password" id="ucpassword" name="ucpassword" placeholder="Re-enter your password"
+                required><br>
               <span id="ucpassword-error" class="error-message"></span>
-  
+
               <label for="udob">Date of Birth</label><br>
               <input type="date" id="udob" name="udob" required><br>
               <span id="udob-error" class="error-message"></span>
-  
+
               <label for="ucountry">Country</label><br>
               <select name="ucountry" id="ucountry" required>
                 <option value="" disabled selected>Select a country</option>
@@ -56,6 +57,12 @@
                 <option value="pakistan">Pakistan</option>
                 <option value="united-states">United States</option>
               </select><br />
+
+              <label for="uavatar">Upload Your Avatar</label><br>
+              <input type="file" id="uavatar" name="uavatar" accept=".png, .jpg, .jpeg, image/png, image/jpeg"
+                required><br>
+              <span id="uavatar-error" class="error-message"></span>
+
               <div>
                 <label for="ucolor" class="color-label">Choose a color:</label>
                 <input type="color" id="ucolor" name="ucolor" value="#1F3D6B" aria-label="Choose Color" /><br />
@@ -68,7 +75,7 @@
                 <label for="female">Female</label>
               </fieldset>
               <br />
-  
+
               <input type="checkbox" id="termandcondition" required />
               <label for="termandcondition"><a href="https://example.com" target="_blank">I agree to the terms &
                   conditions.</a></label><br />
@@ -84,15 +91,15 @@
           <h4>Login</h4>
           <div class="login-details">
             <form action="#">
-  
+
               <label for="login-email"></label><br>
               <input type="email" id="login-email" name="login-email" placeholder="Enter Email" required><br>
               <span id="login-email-error" class="error-message"></span>
-      
+
               <label for="login-pass"></label><br>
               <input type="password" id="login-pass" name="login-pass" placeholder="Enter Password" required><br>
               <span id="login-pass-error" class="error-message"></span>
-      
+
               <button type="submit" class="login-button" onclick="return login_validate()">
                 Log In
               </button>
@@ -105,7 +112,7 @@
     </div>
     <div class="right-panel">
       <div class="table-container">
-        <table id="aqi-table" class="aqi-table">
+        <table id="home-aqi-table" class="aqi-table">
           <caption>Top 5 Cities with the Worst Air Quality</caption>
           <thead>
             <tr>
@@ -113,7 +120,7 @@
               <th>AQI</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="filter: blur(4px);">
             <tr>
               <td>Kuwait City, Kuwait</td>
               <td>312</td>
