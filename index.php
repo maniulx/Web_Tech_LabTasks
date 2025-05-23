@@ -1,29 +1,49 @@
 <?php
+session_start(); // Start the session at the top of the file
+
 $login_message = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login-email'], $_POST['login-pass'])) {
-  $conn = new mysqli("localhost", "root", "", "aqi");
-  if ($conn->connect_error) {
-    $login_message = "Database connection failed.";
-  } else {
-    $email = $_POST['login-email'];
-    $password = $_POST['login-pass'];
-    $stmt = $conn->prepare("SELECT upassword FROM users WHERE uemail = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->bind_result($db_password);
-    if ($stmt->fetch()) {
-      if ($db_password === $password) {
-        $login_message = "Login successful!";
-      } else {
-        $login_message = "Incorrect password.";
-      }
+    $conn = new mysqli("localhost", "root", "", "aqi");
+
+    if ($conn->connect_error) {
+        $login_message = "Database connection failed.";
     } else {
-      $login_message = "No user found with this email.";
+        $email = $_POST['login-email'];
+        $password = $_POST['login-pass'];
+
+        // Prepare and execute the SQL statement to get full user info
+        $stmt = $conn->prepare("SELECT ufullname, upassword, uimage FROM users WHERE uemail = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows === 1) {
+            $stmt->bind_result($name, $db_password, $avatar);
+            $stmt->fetch();
+
+            if ($db_password === $password) { 
+                // Set session variables
+                $_SESSION['email'] = $email;
+                $_SESSION['name'] = $name;
+                $_SESSION['avatar'] = $avatar;
+
+                $login_message = "Login successful!";
+                // Optionally redirect:
+                // header("Location: dashboard.php");
+                // exit();
+            } else {
+                $login_message = "Incorrect password.";
+            }
+        } else {
+            $login_message = "No user found with this email.";
+        }
+
+        $stmt->close();
+        $conn->close();
     }
-    $stmt->close();
-    $conn->close();
-  }
 }
+
 ?>
 
 <!DOCTYPE html>

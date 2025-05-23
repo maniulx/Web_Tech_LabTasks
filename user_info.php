@@ -4,7 +4,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if (!isset($_SESSION['user_email'])) {
+if (!isset($_SESSION['email'])) {
     echo "<p>You are not logged in. Please <a href='index.php'>login</a> to access this page.</p>";
     exit();
 }
@@ -19,7 +19,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$user_email = $_SESSION['user_email'];
+$user_email = $_SESSION['email'];
 
 $sql = "SELECT * FROM users WHERE uemail = ?";
 $stmt = $conn->prepare($sql);

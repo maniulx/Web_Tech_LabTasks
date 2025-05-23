@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +19,49 @@
             background-color: #f4f4f4;
             height: 100vh;
             margin: 0;
+        }
+
+        .user-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            text-align: center;
+            z-index: 100;
+        }
+
+        .user-info div {
+            margin: 5px 0;
+            color: #000;
+            font-size: 14px;
+        }
+
+        .username {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .user-email {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .logout-btn {
+            padding: 6px 15px;
+            background:red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: red;
         }
 
         .border-container {
@@ -165,16 +211,38 @@
         .modal-content button {
             padding: 10px 20px;
             border: none;
-            background: #5DBCD2;
+           
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
         }
+        .user_avatar{
+            position: fixed;
+            left: 20px;
+            top: 20px;
+
+        }
+        .user_avatar > img{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 
 <body>
+    <div class="user_avatar">
+        <img src="<?php echo htmlspecialchars($_SESSION['avatar']) ?>" alt="user_avatar" >
+    </div>
+    <div class="user-info">
+        <?php if (isset($_SESSION['name']) && isset($_SESSION['email'])): ?>
+            <div class="username"><?php echo htmlspecialchars($_SESSION['name']); ?></div>
+            <div class="email"><a href="./user_info.php"><?php echo htmlspecialchars($_SESSION['email']); ?></a></div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        <?php endif; ?>
+    </div>
+
     <div class="border-container">
         <div class="request-box" id="request-box">
             <h2>Request AQI Details</h2>
@@ -214,6 +282,14 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Redirect to logout page or perform logout action
+                window.location.href = 'logout.php';
+            }
+        }
+    </script>
 </body>
 
 </html>
