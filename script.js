@@ -28,6 +28,47 @@ function closeRegSuccessModal() {
     }, 500);
 }
 
+function closeUserExistModal() {
+    document.getElementById('user-exists-modal').style.display = 'none';
+    document.getElementById('confirmation-container').style.filter = 'none';
+    document.body.classList.remove('modal-open');
+    setTimeout(function () {
+        history.go(-2);
+    }, 500);
+}
+
+function showLoginSuccess() {
+    document.getElementById('login-success-modal').style.display = 'flex';
+    document.getElementById('main-container').style.filter = 'blur(4px)';
+    document.body.classList.add('modal-open');
+
+}
+
+function closeLoginSuccess() {
+    document.getElementById('login-success-modal').style.display = 'none';
+    document.getElementById('main-container').style.filter = 'none';
+    document.body.classList.remove('modal-open');
+    setTimeout(function () {
+        window.location.replace("requestaqi.php");
+    }, 500);
+}
+
+function showLoginFailed(loginError) {
+    document.getElementById('login-failed-modal').style.display = 'flex';
+    document.getElementById('main-container').style.filter = 'blur(4px)';
+    document.body.classList.add('modal-open');
+    document.getElementById('login-failed-msg').textContent = loginError;
+}
+
+function closeLoginFailed() {
+    document.getElementById('login-failed-modal').style.display = 'none';
+    document.getElementById('main-container').style.filter = 'none';
+    document.body.classList.remove('modal-open');
+    setTimeout(function () {
+        history.go(-1);
+    }, 500);
+}
+
 function validate() {
     document.querySelectorAll('.error-message').forEach(msg => msg.style.display = 'none');
 
@@ -45,7 +86,6 @@ function validate() {
         }
     }
 
-    // Validate Email
     let email = document.getElementById('uemail').value.trim();
     let emailRegx = /^[^\s@]+@(gmail|yahoo|outlook|hotmail|icloud|protonmail)\.(com|net|org|co\.uk|in|edu)$/i;
     if (email === "") {
@@ -58,7 +98,6 @@ function validate() {
         return false;
     }
 
-    // Validate Password
     let password = document.getElementById('upassword').value.trim();
     let confirmPassword = document.getElementById('ucpassword').value.trim();
     if (password === "") {
@@ -81,7 +120,6 @@ function validate() {
         return false;
     }
 
-    // Validate Date of Birth
     let dobInput = document.getElementById('udob').value.trim();
     if (dobInput === "") {
         document.getElementById('udob-error').textContent = "Please select your date of birth.";
@@ -103,7 +141,6 @@ function validate() {
         }
     }
 
-    // Validate Country
     let country = document.getElementById('ucountry').value.trim();
     if (country === "") {
         document.getElementById('ucountry-error').textContent = "Please select your country.";
@@ -111,7 +148,6 @@ function validate() {
         return false;
     }
 
-    // Validate Gender
     let genderSelected = document.querySelector('input[name="ugender"]:checked');
     if (!genderSelected) {
         document.getElementById('ugender-error').textContent = "Please select your gender.";
@@ -119,6 +155,5 @@ function validate() {
         return false;
     }
 
-    // If all validations pass
     return true;
 }

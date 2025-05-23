@@ -58,17 +58,39 @@ if (isset($_POST['avatarURL']) && !empty($_POST['avatarURL'])) {
     $avatarURL = $_POST['avatarURL'];
 }
 
+$registration_message = '';
+
 if (isset($_POST['confirm'])) {
-    $registration_message = register_to_db(
-        $user_fullname,
-        $user_email,
-        $user_password,
-        $user_dob,
-        $user_country,
-        $user_gender,
-        $user_selectedColor,
-        $avatarURL
-    );
+    $conn = new mysqli("localhost", "root", "", "aqi");
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE uemail = ?");
+    $stmt->bind_param("s", $user_email);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($count > 0) {
+        $registration_message = "already exists";
+    } else {
+        $registration_message = register_to_db(
+            $user_fullname,
+            $user_email,
+            $user_password,
+            $user_dob,
+            $user_country,
+            $user_gender,
+            $user_selectedColor,
+            $avatarURL
+        );
+        $registration_message = "registration successful!";
+
+        setcookie("user_color", $user_selectedColor, time() + (86400 * 30), "/");
+    }
+    $conn->close();
 }
 ?>
 
@@ -260,13 +282,29 @@ if (isset($_POST['confirm'])) {
     <div id="registration-done-modal" class="modal-overlay" style="display:none;">
         <div class="modal-content">
             <p>Registration Successful</p>
+
             <button onclick="closeRegSuccessModal()">OK</button>
         </div>
     </div>
-    <?php if (!empty($registration_message) && $registration_message === "Registration successful!"): ?>
+    <div id="user-exists-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <p>User Already Exists</p>
+            <p>Try a different email.</p>
+            <button onclick="closeUserExistModal()">OK</button>
+        </div>
+    </div>
+    <?php if (!empty($registration_message) && $registration_message === "registration successful!"): ?>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('registration-done-modal').style.display = 'flex';
+                document.getElementById('confirmation-container').style.filter = 'blur(4px)';
+            });
+        </script>
+    <?php endif; ?>
+    <?php if (!empty($registration_message) && $registration_message === "already exists"): ?>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('user-exists-modal').style.display = 'flex';
                 document.getElementById('confirmation-container').style.filter = 'blur(4px)';
             });
         </script>
