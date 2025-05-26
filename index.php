@@ -4,44 +4,44 @@ session_start(); // Start the session at the top of the file
 $login_message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login-email'], $_POST['login-pass'])) {
-    $conn = new mysqli("localhost", "root", "", "aqi");
+  $conn = new mysqli("localhost", "root", "", "aqi");
 
-    if ($conn->connect_error) {
-        $login_message = "Database connection failed.";
+  if ($conn->connect_error) {
+    $login_message = "Database connection failed.";
+  } else {
+    $email = $_POST['login-email'];
+    $password = $_POST['login-pass'];
+
+    // Prepare and execute the SQL statement to get full user info
+    $stmt = $conn->prepare("SELECT ufullname, upassword, uimage FROM users WHERE uemail = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows === 1) {
+      $stmt->bind_result($name, $db_password, $avatar);
+      $stmt->fetch();
+
+      if ($db_password === $password) {
+        // Set session variables
+        $_SESSION['email'] = $email;
+        $_SESSION['name'] = $name;
+        $_SESSION['avatar'] = $avatar;
+
+        $login_message = "Login successful!";
+        // Optionally redirect:
+        // header("Location: dashboard.php");
+        // exit();
+      } else {
+        $login_message = "Incorrect password.";
+      }
     } else {
-        $email = $_POST['login-email'];
-        $password = $_POST['login-pass'];
-
-        // Prepare and execute the SQL statement to get full user info
-        $stmt = $conn->prepare("SELECT ufullname, upassword, uimage FROM users WHERE uemail = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->store_result();
-
-        if ($stmt->num_rows === 1) {
-            $stmt->bind_result($name, $db_password, $avatar);
-            $stmt->fetch();
-
-            if ($db_password === $password) { 
-                // Set session variables
-                $_SESSION['email'] = $email;
-                $_SESSION['name'] = $name;
-                $_SESSION['avatar'] = $avatar;
-
-                $login_message = "Login successful!";
-                // Optionally redirect:
-                // header("Location: dashboard.php");
-                // exit();
-            } else {
-                $login_message = "Incorrect password.";
-            }
-        } else {
-            $login_message = "No user found with this email.";
-        }
-
-        $stmt->close();
-        $conn->close();
+      $login_message = "No user found with this email.";
     }
+
+    $stmt->close();
+    $conn->close();
+  }
 }
 
 ?>
@@ -59,10 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login-email'], $_POST
 
 <body>
   <div class="header">
-    <img
-      src="https://marketplace.canva.com/EAFaFUz4aKo/3/0/1600w/canva-yellow-abstract-cooking-fire-free-logo-tn1zF-_cG9c.jpg"
-      alt="company logo" class="logo" />
-    <h4 class="company-title">Cooking360</h4>
+    <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*vUjbXEhejJs6RjvVNFAr9A.png" alt="company logo"
+      class="logo" />
+    <h4 class="company-title">Air Quality Index</h4>
   </div>
   <div id="main-container" class="main-container">
     <div class="left-panel">
